@@ -59,7 +59,6 @@ resource "aws_s3_bucket_website_configuration" "static_website" {
   }
 }
 
-
 # Prevent public access to the bucket
 resource "aws_s3_bucket_public_access_block" "static_website" {
   bucket = aws_s3_bucket.static_website.id

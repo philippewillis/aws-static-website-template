@@ -18,9 +18,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   comment             = "Static website distribution"
   default_root_object = "index.html"
 
-  #TODO: Add the domain name here when it's created
-   
-  # aliases = [local.domain_name]
+
 
   default_cache_behavior {
     allowed_methods  = [ "GET", "HEAD", "OPTIONS"]
@@ -81,16 +79,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     Environment = terraform.workspace
   }
 
+  aliases = [local.domain_name]
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = data.aws_acm_certificate.issued.arn
+    ssl_support_method = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
-
-  #TODO: add this when we have the acm certs created
-  # viewer_certificate {
-  #   acm_certificate_arn = module.cert.arn
-  #   ssl_support_method = "sni-only"
-  #   minimum_protocol_version = "TLSv1.2_2021"
-  # }
 
   lifecycle {
     ignore_changes = [ tags ]
