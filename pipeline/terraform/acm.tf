@@ -13,6 +13,6 @@ provider "aws" {
 # Data source for ACM certificate in us-east-1
 data "aws_acm_certificate" "issued" {
   provider = aws.certificates
-  domain   = var.hosted_zone_name
+  domain   = var.HOSTED_ZONE_NAME
   statuses = ["ISSUED"]
 }

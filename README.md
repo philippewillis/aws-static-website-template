@@ -1,7 +1,7 @@
 # AWS Static Website Template
 - Goal is to have a template to easily deploy an Static Web application to AWS
 - Have Terraform deploy it
-- The `app_name` & `app_version` name comes from the package.json `name` property
+- The `APP_NAME` & `APP_VERSION` name comes from the package.json `name` property
 
 
 ## Deploy

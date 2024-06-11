@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "static_website" {
   statement {
-    sid = "${var.app_name}_bucket_policy_site"
+    sid = "${var.APP_NAME}_bucket_policy_site"
     actions = ["s3:GetObject"]
     effect = "Allow"
     resources = ["arn:aws:s3:::${local.bucket_name}/*"]
@@ -25,9 +25,9 @@ resource "aws_s3_bucket_policy" "static_website" {
 resource "aws_s3_bucket" "static_website" {
   bucket = local.bucket_name
   tags = {
-    Name        = var.app_name
+    Name        = var.APP_NAME
     Environment = terraform.workspace
-    Version     = var.app_version
+    Version     = var.APP_VERSION
   }
   force_destroy = true
 }
