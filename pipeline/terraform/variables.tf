@@ -1,12 +1,10 @@
+variable "app_name" {}
+variable "app_version" {}
 
 variable hosted_zone_name {}
 variable env_tag {}
 variable "suffix" {}
 
-variable "project_name" {
-  default = ""
-  type = string
-}
 
 variable "region" {
   description = "The AWS region"
@@ -15,5 +13,5 @@ variable "region" {
 
 
 locals {
-  bucket_name = "${var.project_name}${var.suffix}"
+  bucket_name = "${var.app_name}-${terraform.workspace}"
 }

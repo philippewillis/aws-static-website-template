@@ -25,4 +25,11 @@ dist-ssr
 
 _IGNORE_
 .env
-terraform/.terraform
+pipeline/.terraform
+.terraform
+
+coverage
+build
+build-authorizer
+build/index.js
+build/index.js.map

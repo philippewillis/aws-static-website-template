@@ -5,10 +5,27 @@
 
 
 
+## Notes
+- The App name comes from the package.json `name` property
+- Create a `./.env` file from the `./.env.sample`
+
+
+
+
+## Deploy
+```shell
+# Infra
+$ ./pipeline/deploy.sh dev
+
+# Sync Source
+$ ./pipeline/sync-source-code.sh dev
+
+```
+
+
+
 ## AWS Services
-- [ ] S3 - store the source code
+- [x] S3 - store the source code
 - [ ] CloudFront - CDN
 - [ ] ACM - Certs
 - [ ] Route53 - DNS
-
-
