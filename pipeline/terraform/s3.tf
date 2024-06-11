@@ -56,10 +56,7 @@ resource "aws_s3_bucket_website_configuration" "static_website" {
 }
 
 
-##############################################################################################################################
-# *NOTE: if you go to AWS click on your S3 bucket name -> `Properties` scroll down to `Static website hosting` to get the URL
-# you hsould really turn this off
-##############################################################################################################################
+# Prevent public access to the bucket
 resource "aws_s3_bucket_public_access_block" "static_website" {
   bucket = aws_s3_bucket.static_website.id
 
