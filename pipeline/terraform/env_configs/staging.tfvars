@@ -1,3 +1,3 @@
-hosted_zone_name = ""
+hosted_zone_name = "some-awesome-site.com"
 env_tag = "staging"
-suffix = "-staging"
+sub_domain = "staging."

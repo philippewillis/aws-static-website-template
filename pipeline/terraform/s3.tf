@@ -5,15 +5,19 @@ data "aws_iam_policy_document" "static_website" {
     effect = "Allow"
     resources = ["arn:aws:s3:::${local.bucket_name}/*"]
     principals {
-      type = "AWS"
-      identifiers = ["*"] # TODO: This will eventually be CF [aws_cloudfront_origin_access_identity]
+      type = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values   = [aws_cloudfront_distribution.s3_distribution.arn]
     }
   }
 }
 
 resource "aws_s3_bucket_policy" "static_website" {
   bucket = aws_s3_bucket.static_website.id
-
   policy = data.aws_iam_policy_document.static_website.json
 }
 
@@ -47,7 +51,7 @@ resource "aws_s3_bucket_website_configuration" "static_website" {
   bucket = aws_s3_bucket.static_website.id
 
   index_document {
-    suffix = "index.html"
+    suffix   = "index.html"
   }
 
   error_document {

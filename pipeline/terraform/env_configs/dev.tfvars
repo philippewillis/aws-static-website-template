@@ -1,3 +1,3 @@
 hosted_zone_name = ""
 env_tag = "development"
-suffix = "-dev"
+sub_domain = "dev."

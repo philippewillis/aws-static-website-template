@@ -26,6 +26,6 @@ $ ./pipeline/sync-source-code.sh dev
 
 ## AWS Services
 - [x] S3 - store the source code
-- [ ] CloudFront - CDN
-- [ ] ACM - Certs
+- [x] CloudFront - CDN
 - [ ] Route53 - DNS
+- [ ] ACM - Certs

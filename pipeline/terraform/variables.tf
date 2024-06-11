@@ -3,7 +3,7 @@ variable "app_version" {}
 
 variable hosted_zone_name {}
 variable env_tag {}
-variable "suffix" {}
+variable "sub_domain" {}
 
 
 variable "region" {
@@ -14,4 +14,5 @@ variable "region" {
 
 locals {
   bucket_name = "${var.app_name}-${terraform.workspace}"
+  domain_name = "${var.sub_domain}${var.hosted_zone_name}"
 }
