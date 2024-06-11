@@ -48,5 +48,5 @@ if ! AWS_PROFILE="$AWS_PROFILE" terraform workspace select $WORKSPACE; then
 fi
 
 # Plan
-AWS_PROFILE="$AWS_PROFILE" terraform apply -auto-approve -var-file=$VAR_FILE -var="app_name=$APP_NAME" -var="app_version=$APP_VERSION" 
+AWS_PROFILE="$AWS_PROFILE" terraform apply -auto-approve -var-file=$VAR_FILE -var="app_name=$APP_NAME" -var="app_version=$APP_VERSION" -var="hosted_zone_name=$HOSTED_ZONE_NAME" 
 popd
